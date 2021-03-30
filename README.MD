@@ -1,6 +1,6 @@
-#Human Resource Management System
+# Human Resource Management System
 
-##Scope
+## Scope
 * The system matches the listing skills and competency mapping and produces the out of 
 identifying the employee suitable for a particular task or activity(in short allows the admin to 
 design a job)
