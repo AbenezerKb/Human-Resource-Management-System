@@ -52,8 +52,8 @@ public class Home {
     
     
    public Home() throws Exception{
-        
-    input = new FileInputStream("C:\\Users\\hp\\Documents\\java projects\\logo.png");    
+        String path = "C:\\Users\\hp\\Documents\\NetBeansProjects\\HR Management\\src\\hr\\management\\assets\\logo.png";
+    input = new FileInputStream(path);    
     img = new Image(input);     
     imgview= new ImageView(img);
     imgview.setFitWidth(290);
