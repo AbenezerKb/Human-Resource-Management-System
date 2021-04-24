@@ -1,0 +1,130 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 13, 2021, 10:38:45 AM
+    Author     : hp
+*/
+
+*{
+       -fx-background-color: #001A27;
+         
+       /*0279B4*/
+ 
+}
+
+.box{
+    
+      -fx-background-color: #001A27;
+      -fx-border-color: white; 
+      /*-fx-background-color: #0279B4;*/
+      /*2A3950
+      -fx-padding: -90;
+      */
+}
+
+.hb{
+    
+      -fx-background-color: #001A27;
+      -fx-border-color: white; 
+      /*-fx-background-color: #0279B4;*/
+      /*2A3950
+      -fx-padding: -90;
+      */
+}
+
+
+
+/*2a7baf*/
+.columnID{
+    -fx-text-fill: white;
+    -fx-border-color: white; 
+    -fx-background-color: #0279B4; 
+}
+
+.columnfn{
+    -fx-text-fill: white;
+    -fx-border-color: white; 
+    -fx-background-color: #0279B4; 
+}
+
+
+.tableView{
+    -fx-text-fill: white;
+    -fx-border-color: white; 
+    -fx-background-color: #0279B4; 
+}
+
+
+.homebtn {
+    /*  -fx-background-color: #0279B4; */
+    -fx-text-fill: white;
+    -fx-border-color: white; 
+    -fx-border-radius: 5px;
+}
+
+
+.homebtn:hover {
+      -fx-background-color: #0279B4; 
+    -fx-text-fill: white;
+    /*-fx-border-color: white; */
+    -fx-border-radius: 5px;
+}
+
+.employeebtn {
+   /*  -fx-background-color: #0279B4; */
+    -fx-text-fill: white;
+     -fx-border-color: white; 
+      -fx-border-radius: 5px;
+}
+
+.employeebtn:hover {
+      -fx-background-color: #0279B4; 
+    -fx-text-fill: white;
+    /*-fx-border-color: white; */
+    -fx-border-radius: 5px;
+}
+
+.financbtn {
+     /* -fx-background-color: #0279B4; */
+    -fx-text-fill: white;
+    -fx-border-color: white;
+     -fx-border-radius: 5px;
+}
+
+.financbtn:hover {
+      -fx-background-color: #0279B4; 
+    -fx-text-fill: white;
+    /*-fx-border-color: white; */
+    -fx-border-radius: 5px;
+}
+
+.configbtn {
+    /* -fx-background-color: #0279B4; */
+    -fx-text-fill: white;
+    -fx-border-color: white;
+     -fx-border-radius: 5px;
+}
+
+.configbtn:hover {
+      -fx-background-color: #0279B4; 
+    -fx-text-fill: white;
+    /*-fx-border-color: white; */
+    -fx-border-radius: 5px;
+}
+
+.leavebtn {
+     /* -fx-background-color: #0279B4; */
+    -fx-text-fill: white;
+    -fx-border-color: white;
+     -fx-border-radius: 5px;
+}
+
+.leavebtn:hover {
+      -fx-background-color: #0279B4; 
+    -fx-text-fill: white;
+    /*-fx-border-color: white; */
+    -fx-border-radius: 5px;
+}
