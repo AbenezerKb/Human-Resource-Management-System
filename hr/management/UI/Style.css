@@ -8,23 +8,49 @@ and open the template in the editor.
     Author     : hp
 */
 
+<<<<<<< HEAD
 
 
 .sp{    
     
     -fx-background-color: #2a3950;
+=======
+*{
+       -fx-background-color: #2A3950;
+         
+       /*0279B4*/
+ 
+>>>>>>> b260ac08086d17a5870089c8b090730cc3670b1a
 }
 
 
 
 .minimizebtn{
     
+<<<<<<< HEAD
       -fx-background-color: #2e87c5;    
+=======
+      -fx-background-color:  #2A3950;
+      -fx-border-color: white; 
+      /*-fx-background-color: #0279B4;*/
+      /*2A3950
+      -fx-padding: -90;
+      */
+>>>>>>> b260ac08086d17a5870089c8b090730cc3670b1a
 }
 
 .closebtn{
     
+<<<<<<< HEAD
       -fx-background-color: #2e87c5;            
+=======
+      -fx-background-color:  #2A3950;
+      -fx-border-color: white; 
+      /*-fx-background-color: #0279B4;*/
+      /*2A3950
+      -fx-padding: -90;
+      */
+>>>>>>> b260ac08086d17a5870089c8b090730cc3670b1a
 }
 
 .minimizebtn:hover{
