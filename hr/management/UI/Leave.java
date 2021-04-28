@@ -17,25 +17,30 @@ import javafx.scene.shape.*;
  *
  * @author hp
  */
-public class Home {
+public class Leave {
     
     
     public VBox pane = new VBox();
     public TextField tf = new TextField();
     public Button tbnSearch = new Button("Search");
     public Pane box = new Pane();
-    public Button attend = new Button("Set Entry Time");
+    public Button attend = new Button("Save");
+    public DatePicker start = new DatePicker();
+    public DatePicker end = new DatePicker();
+    public ComboBox type = new ComboBox();
+    public Button set = new Button("Set Leave");
     
     
-    public Home(){
+    
+    public Leave(){
     
     
     
     Pane gp = new Pane();
-    pane.setMinSize( 700, 300);
-    pane.setMaxSize(700, 400);
+    pane.setMinSize( 700, 550);
+    pane.setMaxSize(700, 550);
     pane.setLayoutX(100);
-    pane.setLayoutY(250);
+    pane.setLayoutY(100);
     
     tf.setLayoutX(50);
     tf.setLayoutY(50);
@@ -91,11 +96,50 @@ public class Home {
     Name.setLayoutX(175);
     Name.setLayoutY(175);
     
-    attend.setLayoutX(550);
-    attend.setLayoutY(220);
+    attend.setLayoutX(360);
+    attend.setLayoutY(440);
     attend.setStyle("-fx-background-color:#006070; -fx-border-color: white; -fx-border-radius: 5px;  -fx-text-fill: white; -fx-font: sans-serif;");
     attend.setMinWidth(100);
     attend.setMinHeight(37);
+    
+    
+    start.setLayoutX(230);
+    start.setLayoutY(240);
+    start.setStyle("-fx-background-color:#006070; -fx-border-color: white; -fx-border-radius: 5px;  -fx-text-fill: white; -fx-font: sans-serif;");
+    start.setMinWidth(240);
+    start.setMinHeight(37);
+    
+    
+    end.setLayoutX(230);
+    end.setLayoutY(305);
+    end.setStyle("-fx-background-color:#006070; -fx-border-color: white; -fx-border-radius: 5px;  -fx-text-fill: white; -fx-font: sans-serif;");
+    end.setMinWidth(240);
+    end.setMinHeight(37);
+    
+    
+    type.setLayoutX(230);
+    type.setLayoutY(370);
+    type.setStyle("-fx-background-color:#006070; -fx-border-color: white; -fx-border-radius: 5px;  -fx-text-fill: white; -fx-font: sans-serif;");
+    type.setMinWidth(240);
+    type.setMinHeight(37);
+    
+    
+    Label startlbl = new Label("Start Date");
+    Label endlbl = new Label("End Date");
+    Label typelbl = new Label("Type");
+    
+    
+    startlbl.setLayoutX(75);
+    startlbl.setLayoutY(250);
+    endlbl.setLayoutX(75);
+    endlbl.setLayoutY(315);
+    typelbl.setLayoutX(75);
+    typelbl.setLayoutY(380);
+    
+    startlbl.setStyle("-fx-text-fill:white ");
+    endlbl.setStyle("-fx-text-fill:white ");
+    typelbl.setStyle("-fx-text-fill:white ");
+    
     
     gp.getChildren().add(tf);
     gp.getChildren().add(tbnSearch);
@@ -107,7 +151,14 @@ public class Home {
     gp.getChildren().add(ID);
     gp.getChildren().add(Name);
     gp.getChildren().add(attend);
+    gp.getChildren().add(start);
+    gp.getChildren().add(startlbl);
+    gp.getChildren().add(end);
+    gp.getChildren().add(endlbl);
+    gp.getChildren().add(type);
+    gp.getChildren().add(typelbl);
    
+    
     pane.setStyle("-fx-background-color:#006070; -fx-border-color: white; -fx-border-radius: 5px;");
     pane.getChildren().add(gp);
     

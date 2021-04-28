@@ -8,36 +8,73 @@ and open the template in the editor.
     Author     : hp
 */
 
-*{
-       -fx-background-color: #001A27;
-         
-       /*0279B4*/
- 
-}
 
-.box{
+
+.sp{    
     
-      -fx-background-color: #001A27;
-      -fx-border-color: white; 
-      /*-fx-background-color: #0279B4;*/
-      /*2A3950
-      -fx-padding: -90;
-      */
+    -fx-background-color: #2a3950;
 }
 
-.hb{
+
+
+.minimizebtn{
     
-      -fx-background-color: #001A27;
-      -fx-border-color: white; 
-      /*-fx-background-color: #0279B4;*/
-      /*2A3950
-      -fx-padding: -90;
-      */
+      -fx-background-color: #2e87c5;    
+}
+
+.closebtn{
+    
+      -fx-background-color: #2e87c5;            
+}
+
+.minimizebtn:hover{
+    
+      -fx-background-color: #2A3950;    
+}
+
+.closebtn:hover{
+    
+      -fx-background-color: #2A3950;      
+}
+
+.top-one{
+    
+    
+      -fx-background-color: #0b7fb9;
+      
 }
 
 
 
-/*2a7baf*/
+.Menu{
+    
+      -fx-background-color: #2a3950;
+      -fx-border-color: #006070; 
+      -fx-border-width:3px;
+      
+}
+
+.Pages{
+    
+      -fx-background-color: #2a3950;    
+}
+
+
+.imgview{
+    
+   -fx-padding: 50px;
+    -fx-border-insets: 50px;
+    -fx-background-insets: 50px;    
+}
+
+
+
+.pane{
+    -fx-background-color: #0279B4; 
+    -fx-text-fill: white;
+    
+}
+
 .columnID{
     -fx-text-fill: white;
     -fx-border-color: white; 
@@ -58,23 +95,33 @@ and open the template in the editor.
 }
 
 
+
+
 .homebtn {
-    /*  -fx-background-color: #0279B4; */
+    -fx-background-color: #2a3950; 
     -fx-text-fill: white;
     -fx-border-color: white; 
     -fx-border-radius: 5px;
+    
 }
 
 
 .homebtn:hover {
       -fx-background-color: #0279B4; 
-    -fx-text-fill: white;
-    /*-fx-border-color: white; */
+    -fx-text-fill: white;    
     -fx-border-radius: 5px;
 }
 
+.homebtn:selected {
+      -fx-background-color: red; 
+    -fx-text-fill: white;    
+    -fx-border-color: white; 
+    -fx-border-radius: 5px;
+}
+
+
 .employeebtn {
-   /*  -fx-background-color: #0279B4; */
+   -fx-background-color: #2a3950; 
     -fx-text-fill: white;
      -fx-border-color: white; 
       -fx-border-radius: 5px;
@@ -82,13 +129,12 @@ and open the template in the editor.
 
 .employeebtn:hover {
       -fx-background-color: #0279B4; 
-    -fx-text-fill: white;
-    /*-fx-border-color: white; */
+    -fx-text-fill: white;    
     -fx-border-radius: 5px;
 }
 
 .financbtn {
-     /* -fx-background-color: #0279B4; */
+     -fx-background-color: #2a3950; 
     -fx-text-fill: white;
     -fx-border-color: white;
      -fx-border-radius: 5px;
@@ -96,13 +142,12 @@ and open the template in the editor.
 
 .financbtn:hover {
       -fx-background-color: #0279B4; 
-    -fx-text-fill: white;
-    /*-fx-border-color: white; */
+    -fx-text-fill: white;    
     -fx-border-radius: 5px;
 }
 
 .configbtn {
-    /* -fx-background-color: #0279B4; */
+    -fx-background-color: #2a3950;    
     -fx-text-fill: white;
     -fx-border-color: white;
      -fx-border-radius: 5px;
@@ -110,21 +155,20 @@ and open the template in the editor.
 
 .configbtn:hover {
       -fx-background-color: #0279B4; 
-    -fx-text-fill: white;
-    /*-fx-border-color: white; */
+    -fx-text-fill: white;    
     -fx-border-radius: 5px;
 }
 
 .leavebtn {
-     /* -fx-background-color: #0279B4; */
+      -fx-background-color: #2a3950; 
     -fx-text-fill: white;
     -fx-border-color: white;
      -fx-border-radius: 5px;
+     
 }
 
 .leavebtn:hover {
       -fx-background-color: #0279B4; 
-    -fx-text-fill: white;
-    /*-fx-border-color: white; */
+    -fx-text-fill: white;    
     -fx-border-radius: 5px;
 }
