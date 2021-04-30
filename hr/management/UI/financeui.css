@@ -1,0 +1,66 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 19, 2021, 4:17:30 PM
+    Author     : dtpic
+*/
+
+#searchField{
+  -fx-padding: 6px 60px 6px 60px;
+  
+}
+#saveButton{
+    -fx-padding: 6px 60px 6px 60px;
+}
+#list-box{
+    -fx-padding: 100px 30px 100px 30px;
+    -fx-background-color:#006070; 
+    -fx-border-style: solid;
+    -fx-border-color: white;
+}
+#search_btn{
+    -fx-border-style: solid;
+    -fx-border-color: white;
+    -fx-border-radius: 5px;
+     -fx-padding: 5px 30px;
+    -fx-background-color:#006070; 
+    -fx-text-fill: white; 
+    -fx-font-size:15px;
+}
+#saveButton{
+    -fx-border-style: solid;
+    -fx-border-color: white;
+    -fx-border-radius: 5px;
+     -fx-padding: 5px 30px;
+    -fx-background-color:#006070; 
+    -fx-text-fill: white; 
+    -fx-font-size:15px;
+    
+}
+#search_btn:hover{
+        -fx-background-color: #2A3950;
+}
+#saveButton:hover{
+    -fx-background-color: #2A3950;
+}
+#mainTable{
+    -fx-background-color:#006070;
+    -fx-border-color: white;
+}
+#column_id,#column_name{
+}
+#typeLabel{
+    -fx-text-fill:white;
+    -fx-font-size:15px;
+}
+#typeAmount{
+    -fx-text-fill:white;
+    -fx-font-size:15px;
+}
+#amountField,#typeField{
+    -fx-padding: 5px 40px;
+    
+}
