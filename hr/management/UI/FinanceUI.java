@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -9,15 +10,21 @@ package hrm;
  *
  * @author dtpic
  */
+import hrm.Models.Employee;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.*;
 public class FinanceUI {
     Button saveButton,searchButton;
-    TextField searchField,typeField,amountField;
-    TableView<String> mainTable;
+    TextField searchField,typeField;
+    DatePicker dateField;
+    TableView<Employee> mainTable;
     Label typeLabel,typeAmount;
-    TableColumn column_id,column_name;
+    Employee getEmp;
+    TableColumn<Employee,String> column_id,column_name;
     HBox box1,box2;
     GridPane box3;
     VBox list_box;
@@ -30,26 +37,50 @@ public class FinanceUI {
         box1=new HBox(20);
         box1.getChildren().addAll(searchField,searchButton);
         mainTable=new TableView();
+        
         TableColumn column_id=new TableColumn("ID");
         TableColumn column_name=new TableColumn("NAME");
         mainTable.setId("mainTable");
         column_id.setId("column_id");
         column_name.setId("column_name");
+       DbConnection db=new DbConnection();
+         Search search_employee=new Search();
+ 
+        searchButton.setOnAction(e->{         
+                getEmp=search_employee.searchEmployee(searchField.getText());  
+                column_id.setCellValueFactory(new PropertyValueFactory<>("empID"));
+                column_name.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+                mainTable.getItems().add(getEmp);
+                
+   
+        });
+
+        mainTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         mainTable.getColumns().addAll(column_id,column_name);
         
-        typeLabel=new Label("Type");
+        typeLabel=new Label("Payment Reason");
         typeLabel.setId("typeLabel");
         typeField=new TextField();
         typeField.setPromptText("Type");
         box2=new HBox(20);
         box2.getChildren().addAll(typeLabel,typeField);
-        typeAmount=new Label("Amount");
+        typeAmount=new Label("Payment Date");
         typeAmount.setId("typeAmount");
-        amountField=new TextField();
-        amountField.setId("amountField");
+        dateField=new DatePicker();
+        dateField.setId("amountField");
         typeField.setId("typeField");
-        amountField.setPromptText("Amount");
+        dateField.setPromptText("date of reason");
         saveButton=new Button("Save");
+        Create create=new Create();
+        
+        saveButton.setOnAction(e->{
+            
+            try {
+                create.createFinance( searchField.getText(),dateField.getValue().toString(), typeField.getText());
+            } catch (Exception ex) {
+                Logger.getLogger(FinanceUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
         
         saveButton.setId("saveButton");
         box3=new GridPane();
@@ -58,7 +89,7 @@ public class FinanceUI {
         box3.add(typeLabel,0,0);
         box3.add(typeField,1,0);
         box3.add(typeAmount,0,1);
-        box3.add(amountField,1,1);
+        box3.add(dateField,1,1);
         box3.add(saveButton, 1, 2);
         list_box=new VBox(20);
         list_box.setAlignment(Pos.CENTER);
