@@ -55,6 +55,7 @@ public class DashBoard {
     Button financbtn  = new Button("Finance");
     Button leavebtn  = new Button("Leave");
     Button configbtn  = new Button("Configuration");
+    Button announcebtn  = new Button("Activity");
     TitledPane tp;
     Pane Pages;
     Pane top;
@@ -100,38 +101,44 @@ public class DashBoard {
     
     
     homebtn.setMaxWidth(350);
-    homebtn.setMaxHeight(80);
-    homebtn.setMinHeight(80);
-    homebtn.getStyleClass().add("homebtn");
+    homebtn.setMaxHeight(66);
+    homebtn.setMinHeight(66);
+    homebtn.getStyleClass().add("btn");
        
     employeebtn.setMaxWidth(350);
-    employeebtn.setMaxHeight(80);
-    employeebtn.setMinHeight(80);
-    employeebtn.getStyleClass().add("employeebtn");
+    employeebtn.setMaxHeight(66);
+    employeebtn.setMinHeight(66);
+    employeebtn.getStyleClass().add("btn");
     
     financbtn.setMaxWidth(350);
-    financbtn.setMaxHeight(80);
-    financbtn.setMinHeight(80);
-    financbtn.getStyleClass().add("financbtn");
+    financbtn.setMaxHeight(66);
+    financbtn.setMinHeight(66);
+    financbtn.getStyleClass().add("btn");
     
     leavebtn.setMaxWidth(350);
-    leavebtn.setMaxHeight(80);
-    leavebtn.setMinHeight(80);
-    leavebtn.getStyleClass().add("leavebtn");
+    leavebtn.setMaxHeight(66);
+    leavebtn.setMinHeight(66);
+    leavebtn.getStyleClass().add("btn");
     
     configbtn.setMaxWidth(350);
-    configbtn.setMaxHeight(80);
-    configbtn.setMinHeight(80);
-    configbtn.getStyleClass().add("configbtn");
+    configbtn.setMaxHeight(66);
+    configbtn.setMinHeight(66);
+    configbtn.getStyleClass().add("btn");
     
+    
+    announcebtn.setMaxWidth(350);
+    announcebtn.setMaxHeight(66);
+    announcebtn.setMinHeight(66);
+    announcebtn.getStyleClass().add("btn");
      
     GridPane.setConstraints(homebtn, 0, 1);
     GridPane.setConstraints(employeebtn, 0, 2);
     GridPane.setConstraints(financbtn, 0, 3);
     GridPane.setConstraints(leavebtn, 0, 4);
-    GridPane.setConstraints(configbtn, 0, 5);
+    GridPane.setConstraints(configbtn, 0, 6);
+    GridPane.setConstraints(announcebtn, 0, 5);
     
-    gp.getChildren().addAll( homebtn, employeebtn, financbtn, leavebtn, configbtn, imgview);
+    gp.getChildren().addAll( homebtn, employeebtn, financbtn, leavebtn, configbtn, imgview,announcebtn);
     
     Menu= new HBox(gp);
      Menu.setMaxWidth(270);
@@ -149,7 +156,8 @@ public class DashBoard {
     Pages = new Pane();
     Pages.getStyleClass().add("Pages");
     Pages.setMaxHeight(760);
-    Pages.setMaxWidth(1560);
+    Pages.setMaxWidth(1665);
+    Pages.setMinWidth(1665);
     
     sp = new GridPane();        
       GridPane.setConstraints(Menu, 0, 0);
@@ -170,10 +178,10 @@ public class DashBoard {
     minimize.getStyleClass().add("minimizebtn");
     minimize.setMaxSize(40, 40);
     
-    close.setLayoutX(1145);
+    close.setLayoutX(1245);
     close.setLayoutY(5);
     
-    minimize.setLayoutX(1105);
+    minimize.setLayoutX(1205);
     minimize.setLayoutY(5);
     
     top.getChildren().addAll(close, minimize);
@@ -201,7 +209,7 @@ public class DashBoard {
     Top_and_Body.getChildren().addAll(top,sp);
    String css= this.getClass().getResource("Style.css").toExternalForm();
     
-     Scene scene = new Scene(Top_and_Body, 1180, 714);
+     Scene scene = new Scene(Top_and_Body, 1280, 714);
      
      scene.getStylesheets().add(css);
      Stage ps = new Stage();
@@ -221,18 +229,44 @@ public class DashBoard {
         
         homebtn.setOnAction(x -> {
             
-            Home home = new Home();        
+            Home home = new Home();      
+            Pages.getChildren().clear();
         Pages.getChildren().addAll(home.pane);        
         
         });
         
 leavebtn.setOnAction(x -> {
             
-            Leave leave = new Leave();        
+            Leave leave = new Leave();   
+            Pages.getChildren().clear();
         Pages.getChildren().addAll(leave.pane);        
         
         });        
         
+announcebtn.setOnAction(x ->{
+
+                Activity anouncement = new Activity();   
+            Pages.getChildren().clear();
+        Pages.getChildren().addAll(anouncement.pane);        
+    
+});
+
+employeebtn.setOnAction(e ->{
+
+EmployeeUI empui= new EmployeeUI();
+Pages.getChildren().clear();
+Pages.getChildren().add(empui.employee_UI());
+
+
+
+});
+
+financbtn.setOnAction(e ->{
+FinanceUI financeui = new FinanceUI();
+Pages.getChildren().clear();
+Pages.getChildren().add(financeui.list_box);
+});
+
 
     }
 }

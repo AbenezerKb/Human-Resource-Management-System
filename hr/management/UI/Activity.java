@@ -26,25 +26,27 @@ import javafx.scene.shape.*;
  *
  * @author hp
  */
-public class Home {
+public class Activity {
     
     
     public VBox pane = new VBox();
     public TextField tf = new TextField();
     public Button tbnSearch = new Button("Search");
     public Pane box = new Pane();
-    public Button attend = new Button("Set Entry Time");
+    public Button sendforall = new Button("Send for all");
+    public Button send = new Button("Send");
+    public TextArea ta = new TextArea();
     
     
-    public Home(){
+    public Activity(){
     
     
     
     Pane gp = new Pane();
-    pane.setMinSize( 700, 300);
-    pane.setMaxSize(700, 400);
+    pane.setMinSize( 750, 450);
+    pane.setMaxSize(750, 450);
     pane.setLayoutX(100);
-    pane.setLayoutY(250);
+    pane.setLayoutY(170);
     
     tf.setLayoutX(50);
     tf.setLayoutY(50);
@@ -102,22 +104,29 @@ public class Home {
     ID.setText("");
     Name.setText("");
     
-    attend.setLayoutX(550);
-    attend.setLayoutY(220);
-    attend.setStyle("-fx-background-color:#006070; -fx-border-color: white; -fx-border-radius: 5px;  -fx-text-fill: white; ");
-    attend.setMinWidth(100);
-    attend.setMinHeight(37);
+    ta.setLayoutX(180);
+    ta.setLayoutY(220);
+    ta.setStyle("-fx-background-color:#006070; -fx-border-color: white; -fx-border-radius: 5px;  ");
+    ta.setMinWidth(470);
+    ta.setMinHeight(80);
+    ta.setMaxWidth(470);
+    ta.setMaxHeight(80);
     
-    gp.getChildren().add(tf);
-    gp.getChildren().add(tbnSearch);
-    gp.getChildren().add(box);    
-    gp.getChildren().add(line);
-    gp.getChildren().add(line2);
-    gp.getChildren().add(IDlbl);
-    gp.getChildren().add(Namelbl);
-    gp.getChildren().add(ID);
-    gp.getChildren().add(Name);
-    gp.getChildren().add(attend);
+    sendforall.setLayoutX(550);
+    sendforall.setLayoutY(320);
+    sendforall.setStyle("-fx-background-color:#006070; -fx-border-color: white; -fx-border-radius: 5px;  -fx-text-fill: white; ");
+    sendforall.setMinWidth(100);
+    sendforall.setMinHeight(37);
+    
+    
+    send.setLayoutX(420);
+    send.setLayoutY(320);
+    send.setStyle("-fx-background-color:#006070; -fx-border-color: white; -fx-border-radius: 5px;  -fx-text-fill: white; ");
+    send.setMinWidth(100);
+    send.setMinHeight(37);
+    
+    
+    gp.getChildren().addAll(send, sendforall, Name, ID, Namelbl, IDlbl, line2, line, box,tbnSearch,tf,ta);
    
     pane.setStyle("-fx-background-color:#006070; -fx-border-color: white; -fx-border-radius: 5px;");
     pane.getChildren().add(gp);
@@ -149,7 +158,7 @@ public class Home {
     }
     });
     
-    attend.setOnAction(e ->{
+    sendforall.setOnAction(e ->{
     LocalTime localTime = LocalTime.now();
         Date d = new Date();
     SimpleDateFormat  sdf = new SimpleDateFormat("yyyy.MM.dd"); 

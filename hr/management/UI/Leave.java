@@ -5,7 +5,18 @@
  */
 package hr.management.UI;
 
+import hr.management.Create;
+import hr.management.Models.Employee;
+import hr.management.Models.Finance;
+import hr.management.Search;
+import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
+import java.time.LocalTime;
+import java.util.Date;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.*;
 import javafx.scene.paint.*;
@@ -27,20 +38,49 @@ public class Leave {
     public Button attend = new Button("Save");
     public DatePicker start = new DatePicker();
     public DatePicker end = new DatePicker();
+    public DatePicker holidayDate = new DatePicker();
     public ComboBox type = new ComboBox();
-    public Button set = new Button("Set Leave");
+    public Button setholiday = new Button("Set Public Holiday Leave");
+    TableView tableview = new TableView();
+    TableColumn<Finance,String> IDcolumn = new TableColumn<>("ID");
+    
+    TableColumn<Finance,String> Startcolumn = new TableColumn<>("StartDate");
+    TableColumn<Finance,String> Endcolumn = new TableColumn<>("EndDate");
+    TableColumn<Finance,String> Typecolumn = new TableColumn<>("Type");
+    
+    
     
     
     
     public Leave(){
     
     
+        IDcolumn.setCellValueFactory(new PropertyValueFactory<Finance, String>("ID"));
+        Startcolumn.setCellValueFactory(new PropertyValueFactory<Finance, String>("StartDate"));
+        Endcolumn.setCellValueFactory(new PropertyValueFactory<Finance, String>("EndDate"));
+        Typecolumn.setCellValueFactory(new PropertyValueFactory<Finance, String>("Type"));
+        
+        tableview.getColumns().add(IDcolumn);
+        tableview.getColumns().add(Startcolumn);
+        tableview.getColumns().add(Endcolumn);
+        tableview.getColumns().add(Typecolumn);
+        
+       
     
     Pane gp = new Pane();
-    pane.setMinSize( 700, 550);
-    pane.setMaxSize(700, 550);
-    pane.setLayoutX(100);
+    pane.setMinSize( 800, 550);
+    pane.setMaxSize(800, 550);
+    pane.setLayoutX(75);
     pane.setLayoutY(100);
+    
+    Pane publicH = new Pane();
+    publicH.setMinSize(270, 270);
+    publicH.setMaxSize(270, 270);
+    publicH.setLayoutX(500);
+    publicH.setLayoutY(230);
+    publicH.toBack();
+    
+    publicH.setStyle("-fx-background-color:#006070; -fx-border-color: white; -fx-border-radius: 5px;");
     
     tf.setLayoutX(50);
     tf.setLayoutY(50);
@@ -48,7 +88,7 @@ public class Leave {
     tf.setMinHeight(37);
     tf.setStyle("-fx-background-color:white; -fx-border-color: white; -fx-border-radius: 5px;");
     
-    tbnSearch.setStyle("-fx-background-color:#006070; -fx-border-color: white; -fx-border-radius: 5px;  -fx-text-fill: white; -fx-font: sans-serif;");
+    tbnSearch.setStyle("-fx-background-color:#006070; -fx-border-color: white; -fx-border-radius: 5px;  -fx-text-fill: white; ");
     tbnSearch.setLayoutX(400);
     tbnSearch.setLayoutY(50);
     tbnSearch.setMinWidth(100);
@@ -77,8 +117,8 @@ public class Leave {
     
     Label IDlbl = new Label("ID");
     Label Namelbl = new Label("Name");
-    Label ID = new Label("UUUU");
-    Label Name = new Label("Abene");
+    Label ID = new Label("");
+    Label Name = new Label("");
     
     IDlbl.setLayoutX(75);
     IDlbl.setLayoutY(125);
@@ -96,37 +136,63 @@ public class Leave {
     Name.setLayoutX(175);
     Name.setLayoutY(175);
     
-    attend.setLayoutX(360);
+    attend.setLayoutX(320);
     attend.setLayoutY(440);
-    attend.setStyle("-fx-background-color:#006070; -fx-border-color: white; -fx-border-radius: 5px;  -fx-text-fill: white; -fx-font: sans-serif;");
+    attend.setStyle("-fx-background-color:#006070; -fx-border-color: white; -fx-border-radius: 5px;  -fx-text-fill: white; ");
     attend.setMinWidth(100);
     attend.setMinHeight(37);
     
     
-    start.setLayoutX(230);
+    start.setLayoutX(190);
     start.setLayoutY(240);
-    start.setStyle("-fx-background-color:#006070; -fx-border-color: white; -fx-border-radius: 5px;  -fx-text-fill: white; -fx-font: sans-serif;");
+    start.setStyle("-fx-background-color:#006070; -fx-border-color: white; -fx-border-radius: 5px;  -fx-text-fill: white; ");
     start.setMinWidth(240);
     start.setMinHeight(37);
     
     
-    end.setLayoutX(230);
+    end.setLayoutX(190);
     end.setLayoutY(305);
-    end.setStyle("-fx-background-color:#006070; -fx-border-color: white; -fx-border-radius: 5px;  -fx-text-fill: white; -fx-font: sans-serif;");
+    end.setStyle("-fx-background-color:#006070; -fx-border-color: white; -fx-border-radius: 5px;  -fx-text-fill: white; ");
     end.setMinWidth(240);
     end.setMinHeight(37);
     
     
-    type.setLayoutX(230);
+    holidayDate.setLayoutX(510);
+    holidayDate.setLayoutY(305);
+    holidayDate.setStyle("-fx-background-color:#006070; -fx-border-color: white; -fx-border-radius: 5px;  -fx-text-fill: white; ");
+    holidayDate.setMinWidth(240);
+    holidayDate.setMinHeight(37);
+    
+    setholiday.setLayoutX(604);
+    setholiday.setLayoutY(370);
+    setholiday.setStyle("-fx-background-color:#006070; -fx-border-color: white; -fx-border-radius: 5px;  -fx-text-fill: white; ");
+    setholiday.setMinWidth(100);
+    setholiday.setMinHeight(37);
+    
+    type.setLayoutX(190);
     type.setLayoutY(370);
-    type.setStyle("-fx-background-color:#006070; -fx-border-color: white; -fx-border-radius: 5px;  -fx-text-fill: white; -fx-font: sans-serif;");
+    type.setStyle("-fx-background-color:#006070; -fx-border-color: white; -fx-border-radius: 5px;  -fx-text-fill: white; ");
+    
+    
     type.setMinWidth(240);
     type.setMinHeight(37);
+   type.applyCss();
+    
+    
+    type.getItems().addAll("Sick","Annual");
     
     
     Label startlbl = new Label("Start Date");
     Label endlbl = new Label("End Date");
     Label typelbl = new Label("Type");
+    Label holiday = new Label("Public Holiday");
+    
+    
+    
+    holiday.setLayoutX(560);
+    holiday.setLayoutY(260);
+    holiday.setStyle(" -fx-text-fill: white; -fx-family:19;");
+    
     
     
     startlbl.setLayoutX(75);
@@ -141,26 +207,139 @@ public class Leave {
     typelbl.setStyle("-fx-text-fill:white ");
     
     
-    gp.getChildren().add(tf);
-    gp.getChildren().add(tbnSearch);
-    gp.getChildren().add(box);    
-    gp.getChildren().add(line);
-    gp.getChildren().add(line2);
-    gp.getChildren().add(IDlbl);
-    gp.getChildren().add(Namelbl);
-    gp.getChildren().add(ID);
-    gp.getChildren().add(Name);
-    gp.getChildren().add(attend);
-    gp.getChildren().add(start);
-    gp.getChildren().add(startlbl);
-    gp.getChildren().add(end);
-    gp.getChildren().add(endlbl);
-    gp.getChildren().add(type);
-    gp.getChildren().add(typelbl);
+    gp.getChildren().addAll(tf,tbnSearch,box,line,line2,IDlbl,Namelbl,ID,Name,attend,start,startlbl,end,endlbl,type,typelbl,holiday,holidayDate, setholiday,publicH);
    
     
     pane.setStyle("-fx-background-color:#006070; -fx-border-color: white; -fx-border-radius: 5px;");
     pane.getChildren().add(gp);
+    publicH.toBack();
+     tbnSearch.setOnAction(e ->{
+    try{
+        
+        Alert searchAlert = new Alert(Alert.AlertType.WARNING);
+       
+        if((Search.searchEmployee(tf.getText()))==null)
+        {
+        tf.setText("");    
+        searchAlert.setContentText("Nothing Found");        
+        searchAlert.show();
+        }    
+         
+        else{
+    Employee emp=Search.searchEmployee(tf.getText());
+    Employee eee = new Employee();
+        
     
+    ID.setText(emp.getempID());
+    Name.setText(emp.getfirstName());
+    
+    
+     ObservableList<hr.management.Models.Leave> leave=  FXCollections.observableArrayList();
+        try{
+            ResultSet set =Create.insertLeaveForAll();
+            while(set.next()){
+            hr.management.Models.Leave ll =new hr.management.Models.Leave(set.getString("ID"), set.getString("start"), set.getString("end"), set.getString("type"));
+           if(ll.getEmpID().contains(tf.getText()))
+                   {
+                       leave.add(ll);
+                   }
+            }
+            
+            tableview.setItems(leave);
+        
+        }
+        
+        catch(Exception except){
+    System.out.print(except.getMessage());
+     except.getStackTrace();
+    }
+    
+        }
+    }
+    catch(Exception exception){
+    System.out.print(exception.getMessage());
+   
+    }
+    });
+    
+    attend.setOnAction(e->{
+           
+    
+   
+try{
+     Alert attendAlert = new Alert(Alert.AlertType.CONFIRMATION);
+     
+     System.out.print(type.getSelectionModel().getSelectedItem().toString());
+     
+    if(ID.getText().equals("") || start.getValue() == null ||  end.getValue() == null || type.getSelectionModel().getSelectedItem() == null)
+    {
+        Alert notfoundAlert = new Alert(Alert.AlertType.WARNING);
+        if(ID.getText().equals(""))
+        {
+     notfoundAlert.setContentText("Please Search First");        
+        notfoundAlert.show();
+        }
+        else{
+            notfoundAlert.setContentText("Please Insert into all the fields");        
+        notfoundAlert.show();
+        }
+    }
+    
+    else
+    {
+             
+
+       if(!Create.insertLeave(ID.getText()+start.getValue().toString(), start.getValue().toString(), end.getValue().toString(), type.getSelectionModel().getSelectedItem().toString()))                        
+        {
+        ID.setText("");
+    Name.setText("");
+    tf.setText("");
+    attendAlert.setContentText("Succefull");
+    attendAlert.show();
+        }
+        else
+        {                        
+        ID.setText("");
+    Name.setText("");
+    tf.setText("");
+    
+    attendAlert = new Alert(Alert.AlertType.ERROR);
+    attendAlert.setContentText("Not Succefull");
+    attendAlert.show();
+        }     
+        
+    
+    }
+}
+
+catch(Exception exception){
+System.out.println(exception.getMessage());
+  ID.setText("");
+    Name.setText("");
+    tf.setText("");
+    
+    Alert attendAlert = new Alert(Alert.AlertType.ERROR);
+    attendAlert.setContentText("Not Succefull");
+    attendAlert.show();
+}
+    
+    
+    });
+    
+    
+    
+    setholiday.setOnAction(
+    e ->{
+        
+        try{
+            
+    Create.insertLeaveForAll(holidayDate.getValue().toString());
+        }
+        
+        catch(Exception exception1){
+        System.out.print(exception1.getMessage());
+        exception1.printStackTrace();
+        }
+    });
 }
 }

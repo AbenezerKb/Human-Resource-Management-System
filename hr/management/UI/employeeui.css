@@ -1,0 +1,32 @@
+#searchField{
+  -fx-padding: 6px 60px 6px 60px;
+  
+}
+#saveButton{
+    -fx-padding: 6px 60px 6px 60px;
+}
+#list-box{
+    -fx-padding: 100px 30px 100px 30px;
+    -fx-background-color:#006070; 
+    -fx-border-style: solid;
+    -fx-border-color: white;
+}
+#search_btn{
+    -fx-border-style: solid;
+    -fx-border-color: white;
+    -fx-border-radius: 5px;
+     -fx-padding: 5px 30px;
+    -fx-background-color:#006070; 
+    -fx-text-fill: white; 
+    -fx-font-size:15px;
+}
+
+#search_btn:hover{
+        -fx-background-color: #2A3950;
+}
+#mainTable{
+    -fx-background-color:#006070;
+    -fx-border-color: white;
+}
+#column_id1,#column_role,#column_firstname,#column_lastname,#column_sex,#column_address,#column_age{
+}
