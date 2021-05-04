@@ -1,13 +1,16 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package hr.management.UI;
-import hr.management.Create;
-import hr.management.DbConnection;
-import hr.management.Models.Employee;
-import hr.management.Search;
+package hrm;
+
+/**
+ *
+ * @author dtpic
+ */
+import hrm.Models.Employee;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.geometry.Pos;
@@ -25,7 +28,7 @@ public class FinanceUI {
     HBox box1,box2;
     GridPane box3;
     VBox list_box;
-    public  FinanceUI(){
+    public VBox finance_UI(){
         searchField=new TextField();
         searchField.setPromptText("Search");
         
@@ -41,19 +44,14 @@ public class FinanceUI {
         column_id.setId("column_id");
         column_name.setId("column_name");
        DbConnection db=new DbConnection();
-         //Search search_employee=new Search();
+         Search search_employee=new Search();
  
         searchButton.setOnAction(e->{         
-            try{
-                getEmp=Search.searchEmployee(searchField.getText());  
+                getEmp=search_employee.searchEmployee(searchField.getText());  
                 column_id.setCellValueFactory(new PropertyValueFactory<>("empID"));
                 column_name.setCellValueFactory(new PropertyValueFactory<>("firstName"));
                 mainTable.getItems().add(getEmp);
-            }
-            catch(Exception exception ){
-                System.out.println(exception.getMessage());
-                exception.getStackTrace();
-            }
+                
    
         });
 
@@ -73,12 +71,12 @@ public class FinanceUI {
         typeField.setId("typeField");
         dateField.setPromptText("date of reason");
         saveButton=new Button("Save");
-        
+        Create create=new Create();
         
         saveButton.setOnAction(e->{
             
             try {
-        //        Create.insertFinance( searchField.getText(),dateField.getValue().toString(), typeField.getText());
+                create.createFinance( searchField.getText(),dateField.getValue().toString(), typeField.getText());
             } catch (Exception ex) {
                 Logger.getLogger(FinanceUI.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -102,7 +100,7 @@ public class FinanceUI {
         searchField.setId("searchField");
         list_box.setId("list-box");
         
-        // list_box;
+        return list_box;
     }
     
     

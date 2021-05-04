@@ -4,7 +4,7 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
 /* 
-    Created on : Apr 24, 2021, 6:43:15 AM
+    Created on : Apr 19, 2021, 4:17:30 PM
     Author     : dtpic
 */
 
@@ -30,13 +30,37 @@ and open the template in the editor.
     -fx-text-fill: white; 
     -fx-font-size:15px;
 }
-
+#saveButton{
+    -fx-border-style: solid;
+    -fx-border-color: white;
+    -fx-border-radius: 5px;
+     -fx-padding: 5px 30px;
+    -fx-background-color:#006070; 
+    -fx-text-fill: white; 
+    -fx-font-size:15px;
+    
+}
 #search_btn:hover{
         -fx-background-color: #2A3950;
+}
+#saveButton:hover{
+    -fx-background-color: #2A3950;
 }
 #mainTable{
     -fx-background-color:#006070;
     -fx-border-color: white;
 }
-#column_id1,#column_role,#column_firstname,#column_lastname,#column_sex,#column_address,#column_age{
+#column_id,#column_name{
+}
+#typeLabel{
+    -fx-text-fill:white;
+    -fx-font-size:15px;
+}
+#typeAmount{
+    -fx-text-fill:white;
+    -fx-font-size:15px;
+}
+#amountField,#typeField{
+    -fx-padding: 5px 40px;
+    
 }
